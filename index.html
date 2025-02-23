@@ -9,9 +9,6 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="mediaqueries.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
 </head>
 
 <body>
@@ -269,7 +266,7 @@
               <div class="swiper-slide"><img src="./assets/project-1.png" alt="Project 1" class="project-img" /></div>
               <div class="swiper-slide"><img src="./assets/project-2.png" alt="Project 2" class="project-img" /></div>
               <div class="swiper-slide"><img src="./assets/project-3.png" alt="Project 3" class="project-img" /></div>
-              
+              <div class="swiper-slide"><img src="./assets/project-4.png" alt="Project 4" class="project-img" /></div>
             </div>
             <!-- Pagination (عداد الصور) -->
             <div class="swiper-pagination"></div>
@@ -365,29 +362,25 @@
     <p>Copyright &#169; 2025 Omar Fouad All Rights Reserved.</p>
   </footer>
   <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,       // عرض صورة واحدة فقط في كل مرة
-      spaceBetween: 10,       // مسافة بين الصور
-      loop: true,             // إعادة تشغيل السلايدر تلقائيًا بعد آخر صورة
-      autoplay: {             // تشغيل تلقائي
-        delay: 3000,          // تغيير الصورة كل 3 ثوانٍ
-        disableOnInteraction: false, // استئناف التشغيل بعد التفاعل
-      },
-      pagination: {           // عداد الصور
-        el: ".swiper-pagination",
-        clickable: true,
-        type: "fraction",     // يعرض "1/5" بدلاً من النقاط
-      },
-      navigation: {           // أزرار الانتقال اليدوي
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  </script>
-
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+  var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,       // عرض صورة واحدة فقط في كل مرة
+    spaceBetween: 10,       // مسافة بين الصور
+    loop: true,             // إعادة تشغيل السلايدر تلقائيًا بعد آخر صورة
+    autoplay: {             // تشغيل تلقائي
+      delay: 3000,          // تغيير الصورة كل 3 ثوانٍ
+      disableOnInteraction: false, // استئناف التشغيل بعد التفاعل
+    },
+    pagination: {           // عداد الصور
+      el: ".swiper-pagination",
+      clickable: true,
+      type: "fraction",     // يعرض "1/5" بدلاً من النقاط
+    },
+    navigation: {           // أزرار الانتقال اليدوي
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
 
   <script src="script.js"></script>
 
