@@ -21,3 +21,11 @@ function copyPhoneNumber(event) {
       alert('Failed to copy phone number. Please try again.');
     });
 }
+
+let currentIndex = 0;
+const slides = document.querySelector('.slides');
+function showNextImage() {
+  currentIndex = (currentIndex + 1) % 3; // عدد الصور
+  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+setInterval(showNextImage, 3000); // تغيير الصورة كل 3 ثوانٍ
