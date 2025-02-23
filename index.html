@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="mediaqueries.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 
 <body>
@@ -258,24 +261,34 @@
     <h1 class="title">Projects</h1>
     <div class="experience-details-container">
       <div class="about-containers">
-        <div class="details-container color-container">
-          <div class="article-container slider">
-            <div class="slides">
-              <img src="./assets/project-1.png" alt="Project 1" class="project-img" />
-              <img src="./assets/project-2.png" alt="Project 2" class="project-img" />
-              <img src="./assets/project-3.png" alt="Project 3" class="project-img" />
+      <div class="details-container color-container">
+        <div class="article-container">
+          <!-- Swiper Container -->
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="./assets/project-1.png" alt="Project 1" class="project-img" /></div>
+              <div class="swiper-slide"><img src="./assets/project-2.png" alt="Project 2" class="project-img" /></div>
+              <div class="swiper-slide"><img src="./assets/project-3.png" alt="Project 3" class="project-img" /></div>
+              <div class="swiper-slide"><img src="./assets/project-4.png" alt="Project 4" class="project-img" /></div>
             </div>
-          </div>
-          <h2 class="experience-sub-title project-title">Project One</h2>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
-              Github
-            </button>
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
-              Live Demo
-            </button>
+            <!-- Pagination (عداد الصور) -->
+            <div class="swiper-pagination"></div>
+            <!-- Navigation Buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
           </div>
         </div>
+        <h2 class="experience-sub-title project-title">Project One</h2>
+        <div class="btn-container">
+          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
+            Github
+          </button>
+          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
+            Live Demo
+          </button>
+        </div>
+      </div>
+
 
 
         <div class="details-container color-container">
@@ -351,7 +364,33 @@
     
     <p>Copyright &#169; 2025 Omar Fouad All Rights Reserved.</p>
   </footer>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 1,       // عرض صورة واحدة فقط في كل مرة
+      spaceBetween: 10,       // مسافة بين الصور
+      loop: true,             // إعادة تشغيل السلايدر تلقائيًا بعد آخر صورة
+      autoplay: {             // تشغيل تلقائي
+        delay: 3000,          // تغيير الصورة كل 3 ثوانٍ
+        disableOnInteraction: false, // استئناف التشغيل بعد التفاعل
+      },
+      pagination: {           // عداد الصور
+        el: ".swiper-pagination",
+        clickable: true,
+        type: "fraction",     // يعرض "1/5" بدلاً من النقاط
+      },
+      navigation: {           // أزرار الانتقال اليدوي
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
   <script src="script.js"></script>
+
   
 </body>
 
