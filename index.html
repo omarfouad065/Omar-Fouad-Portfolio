@@ -395,49 +395,6 @@
   </footer>
 
   <script>
-    const slides = document.querySelector('.slides');
-    const images = slides.querySelectorAll('img');
-    const totalImages = images.length;
-    let currentIndex = 0;
-    let autoSlide;
-
-    function showImage(index) {
-      if (index < 0) {
-        currentIndex = totalImages - 1;
-      } else if (index >= totalImages) {
-        currentIndex = 0;
-      } else {
-        currentIndex = index;
-      }
-      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    function nextImage() {
-      showImage(currentIndex + 1);
-      resetAutoSlide();
-    }
-
-    function prevImage() {
-      showImage(currentIndex - 1);
-      resetAutoSlide();
-    }
-
-    function startAutoSlide() {
-      autoSlide = setInterval(() => {
-        showImage(currentIndex + 1);
-      }, 3000);
-    }
-
-    function resetAutoSlide() {
-      clearInterval(autoSlide);
-      startAutoSlide();
-    }
-
-    document.getElementById('next').addEventListener('click', nextImage);
-    document.getElementById('prev').addEventListener('click', prevImage);
-
-    startAutoSlide();
-
     document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".slider").forEach((slider) => {
           let slides = slider.querySelector(".slides");
@@ -458,8 +415,15 @@
             slides.style.transform = `translateX(-${index * 100}%)`;
           }
 
-          prevBtn.addEventListener("click", () => showSlide(index - 1));
-          nextBtn.addEventListener("click", () => showSlide(index + 1));
+          prevBtn.addEventListener("click", () => {
+            index--; // تحديث المؤشر
+            showSlide(index);
+          });
+
+          nextBtn.addEventListener("click", () => {
+            index++; // تحديث المؤشر
+            showSlide(index);
+          });
         });
       });
   </script>
