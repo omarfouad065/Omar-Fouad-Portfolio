@@ -260,15 +260,21 @@
       <div class="about-containers">
         <div class="details-container color-container">
           <div class="article-container slider">
-            <div class="slides">
-              <img src="./assets/movie app/1.png" alt="Project 1" class="project-img" />
-              <img src="./assets/movie app/2.png" alt="Project 1" class="project-img" />
-              <img src="./assets/movie app/3.png" alt="Project 1" class="project-img" />
-              <img src="./assets/movie app/4.png" alt="Project 1" class="project-img" />
-              <img src="./assets/movie app/5.png" alt="Project 1" class="project-img" />
-              <img src="./assets/movie app/6.png" alt="Project 1" class="project-img" />
-              <img src="./assets/movie app/7.png" alt="Project 1" class="project-img" />
-              
+            <div class="slider">
+              <div class="slides">
+                <img src="./assets/movie app/1.png" alt="Image 1">
+                <img src="./assets/movie app/2.png" alt="Image 2">
+                <img src="./assets/movie app/3.png" alt="Image 3">
+                <img src="./assets/movie app/4.png" alt="Image 4">
+                <img src="./assets/movie app/5.png" alt="Image 5">
+                <img src="./assets/movie app/6.png" alt="Image 6">
+                <img src="./assets/movie app/7.png" alt="Image 7">
+                
+              </div>
+              <div class="controls">
+                <button id="prev">❮</button>
+                <button id="next">❯</button>
+              </div>
             </div>
           </div>
           <h2 class="experience-sub-title project-title">Project One</h2>
@@ -365,6 +371,51 @@
     
     <p>Copyright &#169; 2025 Omar Fouad All Rights Reserved.</p>
   </footer>
+
+  <script>
+    const slides = document.querySelector('.slides');
+    const images = slides.querySelectorAll('img');
+    const totalImages = images.length;
+    let currentIndex = 0;
+    let autoSlide;
+
+    function showImage(index) {
+      if (index < 0) {
+        currentIndex = totalImages - 1;
+      } else if (index >= totalImages) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
+      slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextImage() {
+      showImage(currentIndex + 1);
+      resetAutoSlide();
+    }
+
+    function prevImage() {
+      showImage(currentIndex - 1);
+      resetAutoSlide();
+    }
+
+    function startAutoSlide() {
+      autoSlide = setInterval(() => {
+        showImage(currentIndex + 1);
+      }, 3000);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlide);
+      startAutoSlide();
+    }
+
+    document.getElementById('next').addEventListener('click', nextImage);
+    document.getElementById('prev').addEventListener('click', prevImage);
+
+    startAutoSlide();
+  </script>
   <script src="script.js"></script>
   
 </body>
