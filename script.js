@@ -22,10 +22,3 @@ function copyPhoneNumber(event) {
     });
 }
 
-let currentIndex = 0;
-const slides = document.querySelector('.slides');
-function showNextImage() {
-  currentIndex = (currentIndex + 1) % 7; // عدد الصور
-  slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
-setInterval(showNextImage, 2000); // تغيير الصورة كل 3 ثوانٍ
