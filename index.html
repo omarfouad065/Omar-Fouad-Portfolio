@@ -403,6 +403,7 @@
 
           let index = 0;
           const totalSlides = slides.children.length;
+          let autoSlide;
 
           function showSlide(i) {
             if (i < 0) {
@@ -415,15 +416,30 @@
             slides.style.transform = `translateX(-${index * 100}%)`;
           }
 
+          function startAutoSlide() {
+            autoSlide = setInterval(() => {
+              index++;
+              showSlide(index);
+            }, 3000); // تغيير الصورة كل 3 ثواني
+          }
+
+          function stopAutoSlide() {
+            clearInterval(autoSlide);
+          }
+
           prevBtn.addEventListener("click", () => {
-            index--; // تحديث المؤشر
+            stopAutoSlide(); // إيقاف التقليب التلقائي
+            index--;
             showSlide(index);
           });
 
           nextBtn.addEventListener("click", () => {
-            index++; // تحديث المؤشر
+            stopAutoSlide(); // إيقاف التقليب التلقائي
+            index++;
             showSlide(index);
           });
+
+          startAutoSlide(); // تشغيل التقليب التلقائي عند التحميل
         });
       });
   </script>
