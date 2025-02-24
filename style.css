@@ -297,7 +297,7 @@ section {
 }
 
 .details-container {
-  padding: 1.5rem;
+  padding: 2.5rem;
   flex: 1;
   background: #1e1e1e;
   border-radius: 2rem;
@@ -492,3 +492,50 @@ footer p {
   padding: 10px 15px;
   cursor: pointer;
 }
+
+
+ .experience-details-container {
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 20px;
+ }
+
+
+
+ .article-container article {
+   display: flex;
+   align-items: center;
+   margin-bottom: 15px;
+   transition: transform 0.3s ease-in-out;
+ }
+
+ .article-container article:hover {
+   transform: scale(1.5);
+ }
+
+
+
+ .progress-bar {
+   width: 100px;
+   height: 8px;
+   background: #444;
+   border-radius: 5px;
+   margin-top: 5px;
+   position: relative;
+ }
+
+ .progress {
+   height: 100%;
+   border-radius: 5px;
+ }
+
+ .experienced {
+   width: 90%;
+   background: #4caf50;
+ }
+
+ .intermediate {
+   width: 70%;
+   background: #ff9800;
+ }
