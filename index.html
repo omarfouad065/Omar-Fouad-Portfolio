@@ -1,499 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Omar Fouad</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="mediaqueries.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Fouad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
-  <nav id="desktop-nav">
-    <div class="logo">Omar Fouad</div>
-    <div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-  <nav id="hamburger-nav">
-    <div class="logo">Omar Fouad</div>
-    <div class="hamburger-menu">
-      <div class="hamburger-icon" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <div class="menu-links">
-        <li><a href="#about" onclick="toggleMenu()">About</a></li>
-        <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-        <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-        <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-      </div>
-    </div>
-  </nav>
-  <section id="profile">
-    <div class="section__pic-container">
-      <img src="./assets/profile-pic.png" alt="Omar Fouad profile picture" />
-    </div>
-    <div class="section__text">
-      <p class="section__text__p1">Hello, I'm</p>
-      <h1 class="title">Omar Fouad</h1>
-      <p class="section__text__p2">Flutter Developer</p>
-      <div class="btn-container">
-        <button class="btn btn-color-2 project-btn" onclick="window.open('./assets/resume-example.pdf')">
-          Download CV
-        </button>
-        <button class="btn btn-color-1" onclick="location.href='./#contact'">
-          Contact Info
-        </button>
-      </div>
-      <div class="social-icons">
-   
-        <i class="fab fa-linkedin icon" onclick="window.open('https://www.linkedin.com/in/omar-fouad-9b794a1b3/','_blank')"></i>
-        <div></div>
-        <i class="fab fa-github icon" onclick="window.open('https://github.com/omarfouad065?tab=repositories','_blank')"></i>
-      </div>
-
-    </div>
-  </section>
-  <section id="about">
-    <p class="section__text__p1">Get To Know More</p>
-    <h1 class="title">About Me</h1>
-    <div class="section-container">
-
-      <div class="about-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <div class="social-icons">
-              <i class="fab fas fa-certificate" style="font-size: 40px; padding-bottom: 20px ; color: #bbbbbb;" ></i>
-              
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50 dark:bg-gray-800 transition-colors duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-gray-800 dark:text-white">Omar Fouad</div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">About</a>
+                    <a href="#experience" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Experience</a>
+                    <a href="#projects" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Projects</a>
+                    <a href="#contact" class="text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300">
+                        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                        <i class="fas fa-moon text-blue-300 hidden dark:block"></i>
+                    </button>
+                </div>
+                <div class="flex items-center space-x-4 md:hidden">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-300">
+                        <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                        <i class="fas fa-moon text-blue-300 hidden dark:block"></i>
+                    </button>
+                    <button class="md:hidden" onclick="toggleMenu()">
+                        <div class="hamburger-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                </div>
             </div>
-           
-            <h3>Experience</h3>
-            <p>1+ year <br />Flutter Development</p>
-          </div>
-          <div class="details-container">
-            <div class="social-icons">
-              <i class="fab fas fas fa-book" style="font-size: 40px; padding-bottom: 20px ; color: #bbbbbb;"></i>
-            
+            <div class="menu-links md:hidden">
+                <a href="#about" class="block py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">About</a>
+                <a href="#experience" class="block py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Experience</a>
+                <a href="#projects" class="block py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Projects</a>
+                <a href="#contact" class="block py-2 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white">Contact</a>
             </div>
-            <h3>Education</h3>
-            <p>Bachelors Degree in Computer Science<br />Zagazig University</p>
-          </div>
         </div>
-        <div class="textt">
+    </nav>
 
-          <p>
-            As a passionate Flutter developer, I bring creativity and precision to every project. With under a year of
-            experience in
-            building cross-platform mobile applications, I’ve honed my skills in state management techniques like GetX
-            and Provider.
-            My expertise spans integrating REST APIs, optimizing performance, and crafting visually engaging, responsive
-            UI/UX
-            designs. Dedicated to delivering scalable, maintainable applications, I thrive on meeting challenges and
-            achieving
-            results within tight deadlines.
-          </p>
-        </div>
-      </div>
-    </div>
-    
-  </section>
-  <section id="experience">
-    <p class="section__text__p1">Explore My</p>
-    <h1 class="title">Experience</h1>
-    <div class="experience-details-container">
-      <div class="about-containers">
-
-        <div class="details-container">
-          <h2 class="experience-sub-title">Programming Languages</h2>
-          <div class="article-container">
-            <article>
-              <img src="assets/icons/LogosDart.svg" class="icon" width="40" height="32" alt="icon">
-              <div>
-                <h3>Dart</h3>
-                <div class="progress-bar">
-                  <div class="progress experienced"></div>
-                </div>
-              </div>
-            </article>
-            <article>
-              <img src="assets/icons/icons8-c++.svg" class="icon" width="40" height="32" alt="icon">
-              <div>
-                <h3>C++</h3>
-                <div class="progress-bar">
-                  <div class="progress intermediate"></div>
-                </div>
-              </div>
-            </article>
-            <article>
-              <img src="assets/icons/LogosPhp.svg" class="icon" width="40" height="32" alt="icon">
-              <div>
-                <h3>PHP</h3>
-                <div class="progress-bar">
-                  <div class="progress intermediate"></div>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-  
-        <div class="details-container">
-          <h2 class="experience-sub-title">Frameworks & Libraries</h2>
-          <div class="article-container">
-            <article>
-            <img src="assets/icons/flutter-svgrepo-com.svg" class="icon" width="40" height="32" alt="icon">
-              <div>
-                <h3>Flutter</h3>
-                <div class="progress-bar">
-                  <div class="progress experienced"></div>
-                </div>
-              </div>
-            </article>
-            <article>
-              <img src="assets/icons/firebase-1-logo-svgrepo-com.svg" class="icon" width="40" height="32" alt="icon">
-              <div>
-                <h3>Firebase</h3>
-                <div class="progress-bar">
-                  <div class="progress experienced"></div>
-                </div>
-              </div>
-            </article>
-
-            <article>
-              <img src="assets/icons/SimpleIconsGetx.svg" class="icon" width="40" height="32" alt="icon">
-              <div>
-                <h3>GetX</h3>
-                <div class="progress-bar">
-                  <div class="progress experienced"></div>
-                </div>
-              </div>
-            </article>
-
-            <article>
-              <img src="assets/icons/VscodeIconsFolderTypeCubit.svg" class="icon" width="40" height="32" alt="icon">
-              <div>
-                <h3>Bloc</h3>
-                <div class="progress-bar">
-                  <div class="progress experienced"></div>
-                </div>
-              </div>
-            </article>
-
-            
-          </div>
-        </div>
-
-        <div class="details-container">
-          <h2 class="experience-sub-title">Database Management</h2>
-          <div class="article-container">
-            <article>
-              <img src="assets/icons/SkillIconsSqlite.svg" class="icon" width="50" height="50" alt="icon">
-              <div>
-                <h3>SQLite</h3>
-                <div class="progress-bar">
-                  <div class="progress intermediate"></div>
-                </div>
-              </div>
-            </article>
-            <article>
-              <img src="assets/icons/VscodeIconsFileTypeFirestore.svg" class="icon" width="40" height="32" alt="icon">
-              <div>
-                <h3>Firestore</h3>
-                <div class="progress-bar">
-                  <div class="progress experienced"></div>
-                </div>
-              </div>
-            </article>
-        
-            <article>
-              <img src="assets/icons/LogosMysql.svg" class="icon" width="40" height="32" alt="icon">
-              <div>
-                <h3>MySQL</h3>
-                <div class="progress-bar">
-                  <div class="progress intermediate"></div>
-                </div>
-              </div>
-            </article>
-        
-            
-          </div>
-        </div>
-
-        <div class="details-container">
-          <h2 class="experience-sub-title">Tools</h2>
-          <div class="article-container">
-            <article>
-              <img src="assets/icons/DeviconGit.svg" class="icon" width="40" height="32" alt="icon">
-              <div>
-                <h3>Git</h3>
-                <div class="progress-bar">
-                  <div class="progress intermediate"></div>
-                </div>
-              </div>
-            </article>
-            <article>
-              <img src="assets/icons/FluentMdl2GitHubLogo (1).svg" class="icon" width="40" height="32" alt="icon">
-              <div>
-                <h3>GitHub</h3>
-                <div class="progress-bar">
-                  <div class="progress experienced"></div>
-                </div>
-              </div>
-            </article>
-        
-           
-        
-        
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="projects">
-    <p class="section__text__p1">Browse My Recent</p>
-    <h1 class="title">Projects</h1>
-    <div class="experience-details-container">
-      <div class="about-containers">
-
-
-
-<div class="details-container color-container">
-  <div class="article-container slider">
-    <div class="slider">
-      <div class="slides">
-        <img src="./assets/fruits_hub/1-portrait.png" alt="Image 1">
-        <img src="./assets/fruits_hub/2-portrait.png" alt="Image 2">
-        <img src="./assets/fruits_hub/3-portrait.png" alt="Image 3"> 
-        <img src="./assets/fruits_hub/4-portrait.png" alt="Image 4">
-        <img src="./assets/fruits_hub/5-portrait.png" alt="Image 5">
-        <img src="./assets/fruits_hub/6-portrait.png" alt="Image 6">
-        <img src="./assets/fruits_hub/7-portrait.png" alt="Image 7">
-        <img src="./assets/fruits_hub/8-portrait.png" alt="Image 8">
-        <img src="./assets/fruits_hub/9-portrait.png" alt="Image 9">
-        <img src="./assets/fruits_hub/10-portrait.png" alt="Image 10">
-
-      </div>
-      <div class="controls">
-        <button class="prev">❮</button>
-        <button class="next">❯</button>
-
-      </div>
-    </div>
-  </div>
-  <h2 class="experience-sub-title project-title">Fruits Hub</h2>
-  <div class="btn-container">
-    <button class="btn btn-color-2 project-btn"
-      onclick="window.open('https://github.com/omarfouad065/fruit_e_commerce','_blank')">
-    
-      Github
-    </button>
-    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
-      Live Demo
-    </button>
-  </div>
-</div>
-
-
-        <div class="details-container color-container">
-          <div class="article-container slider">
-            <div class="slider">
-              <div class="slides">
-                <img src="./assets/movie app/1.png" alt="Image 1">
-                <img src="./assets/movie app/2.png" alt="Image 2">
-                <img src="./assets/movie app/3.png" alt="Image 3">
-                <img src="./assets/movie app/4.png" alt="Image 4">
-                <img src="./assets/movie app/5.png" alt="Image 5">
-                <img src="./assets/movie app/6.png" alt="Image 6">
-                <img src="./assets/movie app/7.png" alt="Image 7">
-                
-              </div>
-              <div class="controls">
-                <button class="prev">❮</button>
-                <button class="next">❯</button>
-
-              </div>
+    <!-- Profile Section -->
+    <section id="profile" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
+        <div class="container mx-auto px-6 py-32 text-center">
+            <img src="assets/profile-pic.png" alt="Omar Fouad profile picture" class="w-48 h-48 rounded-full mx-auto mb-8 object-cover border-4 border-white scale-in">
+            <p class="text-xl text-white mb-2 fade-in">Hello, I'm</p>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4 fade-in">Omar Fouad</h1>
+            <p class="text-xl md:text-2xl text-white mb-8 fade-in">Flutter Developer</p>
+            <div class="flex justify-center space-x-4">
+                <button onclick="window.open('./assets/resume-example.pdf')" class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300 slide-in-left">
+                    Download CV
+                </button>
+                <button onclick="location.href='./#contact'" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition duration-300 slide-in-right">
+                    Contact Info
+                </button>
             </div>
-          </div>
-          <h2 class="experience-sub-title project-title">FilmyFun</h2>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn"
-              onclick="window.open('https://github.com/omarfouad065/movie_booking','_blank')">
-           
-              Github
+            <div class="flex justify-center space-x-6 mt-8">
+                <a href="https://www.linkedin.com/in/omar-fouad-9b794a1b3/" target="_blank" class="text-white hover:text-gray-200 fade-in">
+                    <i class="fab fa-linkedin text-3xl"></i>
+                </a>
+                <a href="https://github.com/omarfouad065?tab=repositories" target="_blank" class="text-white hover:text-gray-200 fade-in">
+                    <i class="fab fa-github text-3xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-gray-600 mb-2 fade-in">Get To Know More</p>
+            <h2 class="text-4xl font-bold text-center mb-12 fade-in">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-6 bg-gray-50 rounded-lg stagger-item">
+                            <i class="fas fa-certificate text-4xl text-gray-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2">Experience</h3>
+                            <p class="text-gray-600">1+ year<br>Flutter Development</p>
+                        </div>
+                        <div class="text-center p-6 bg-gray-50 rounded-lg stagger-item">
+                            <i class="fas fa-book text-4xl text-gray-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold mb-2">Education</h3>
+                            <p class="text-gray-600">Bachelors Degree in Computer Science<br>Zagazig University</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-gray-600 text-lg leading-relaxed slide-in-right">
+                    <p>
+                        As a passionate Flutter developer, I bring creativity and precision to every project. With under a year of
+                        experience in building cross-platform mobile applications, I've honed my skills in state management techniques like GetX
+                        and Provider. My expertise spans integrating REST APIs, optimizing performance, and crafting visually engaging, responsive
+                        UI/UX designs. Dedicated to delivering scalable, maintainable applications, I thrive on meeting challenges and
+                        achieving results within tight deadlines.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-gray-600 mb-2 fade-in">Explore My</p>
+            <h2 class="text-4xl font-bold text-center mb-12 fade-in">Experience</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Programming Languages -->
+                <div class="bg-white p-6 rounded-lg shadow-lg stagger-item">
+                    <h3 class="text-xl font-bold mb-6">Programming Languages</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/icons/LogosDart.svg" class="w-8 h-8 mr-3" alt="Dart">
+                                <h4 class="font-semibold">Dart</h4>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress experienced"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/icons/icons8-c++.svg" class="w-8 h-8 mr-3" alt="C++">
+                                <h4 class="font-semibold">C++</h4>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress intermediate"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/icons/LogosPhp.svg" class="w-8 h-8 mr-3" alt="PHP">
+                                <h4 class="font-semibold">PHP</h4>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress intermediate"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks & Libraries -->
+                <div class="bg-white p-6 rounded-lg shadow-lg stagger-item">
+                    <h3 class="text-xl font-bold mb-6">Frameworks & Libraries</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/icons/flutter-svgrepo-com.svg" class="w-8 h-8 mr-3" alt="Flutter">
+                                <h4 class="font-semibold">Flutter</h4>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress experienced"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/icons/firebase-1-logo-svgrepo-com.svg" class="w-8 h-8 mr-3" alt="Firebase">
+                                <h4 class="font-semibold">Firebase</h4>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress experienced"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/icons/SimpleIconsGetx.svg" class="w-8 h-8 mr-3" alt="GetX">
+                                <h4 class="font-semibold">GetX</h4>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress experienced"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database Management -->
+                <div class="bg-white p-6 rounded-lg shadow-lg stagger-item">
+                    <h3 class="text-xl font-bold mb-6">Database Management</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/icons/SkillIconsSqlite.svg" class="w-8 h-8 mr-3" alt="SQLite">
+                                <h4 class="font-semibold">SQLite</h4>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress intermediate"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/icons/VscodeIconsFileTypeFirestore.svg" class="w-8 h-8 mr-3" alt="Firestore">
+                                <h4 class="font-semibold">Firestore</h4>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress experienced"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="bg-white p-6 rounded-lg shadow-lg stagger-item">
+                    <h3 class="text-xl font-bold mb-6">Tools</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/icons/DeviconGit.svg" class="w-8 h-8 mr-3" alt="Git">
+                                <h4 class="font-semibold">Git</h4>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress intermediate"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/icons/FluentMdl2GitHubLogo (1).svg" class="w-8 h-8 mr-3" alt="GitHub">
+                                <h4 class="font-semibold">GitHub</h4>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress experienced"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-gray-600 mb-2 fade-in">Browse My Recent</p>
+            <h2 class="text-4xl font-bold text-center mb-12 fade-in">Projects</h2>
+            <div class="projects-grid">
+                <!-- Fruits Hub -->
+                <div class="project-card stagger-item">
+                    <div class="project-image">
+                        <img src="assets/fruits_hub/1-portrait.png" alt="Fruits Hub">
+                        <div class="overlay">
+                            <h3>Fruits Hub</h3>
+                            <p>A modern e-commerce mobile application for fresh fruits and vegetables</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">GetX</span>
+                            </div>
+                            <div class="project-buttons">
+                                <button onclick="window.open('https://github.com/omarfouad065/fruit_e_commerce', '_blank')">
+                                    <i class="fab fa-github"></i>
+                                    View Code
+                                </button>
+                                <button onclick="openGallery('fruits_hub')">
+                                    <i class="fas fa-images"></i>
+                                    View Gallery
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movie App -->
+                <div class="project-card stagger-item">
+                    <div class="project-image">
+                        <img src="assets/movie app/1.png" alt="Movie App">
+                        <div class="overlay">
+                            <h3>FilmyFun</h3>
+                            <p>A comprehensive movie booking application with interactive features</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Provider</span>
+                            </div>
+                            <div class="project-buttons">
+                                <button onclick="window.open('https://github.com/omarfouad065/movie_booking', '_blank')">
+                                    <i class="fab fa-github"></i>
+                                    View Code
+                                </button>
+                                <button onclick="openGallery('movie app')">
+                                    <i class="fas fa-images"></i>
+                                    View Gallery
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Furniture -->
+                <div class="project-card stagger-item">
+                    <div class="project-image">
+                        <img src="assets/furniture app/1.png" alt="Furniture App">
+                        <div class="overlay">
+                            <h3>My Furniture</h3>
+                            <p>An innovative furniture shopping app with 3D visualization</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">AR Core</span>
+                                <span class="project-tag">3D Models</span>
+                            </div>
+                            <div class="project-buttons">
+                                <button onclick="window.open('https://github.com/omarfouad065/furniture_app', '_blank')">
+                                    <i class="fab fa-github"></i>
+                                    View Code
+                                </button>
+                                <button onclick="openGallery('furniture app')">
+                                    <i class="fas fa-images"></i>
+                                    View Gallery
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Planty -->
+                <div class="project-card stagger-item">
+                    <div class="project-image">
+                        <img src="assets/planet app/1.png" alt="Planty App">
+                        <div class="overlay">
+                            <h3>Planty</h3>
+                            <p>A comprehensive plant care application with ML features</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">ML Kit</span>
+                                <span class="project-tag">Firebase</span>
+                            </div>
+                            <div class="project-buttons">
+                                <button onclick="window.open('https://github.com/omarfouad065/planet_app', '_blank')">
+                                    <i class="fab fa-github"></i>
+                                    View Code
+                                </button>
+                                <button onclick="openGallery('planet app')">
+                                    <i class="fas fa-images"></i>
+                                    View Gallery
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden">
+        <div class="relative w-full h-full flex items-center justify-center">
+            <button onclick="closeGallery()" class="absolute top-4 right-4 text-white text-2xl hover:text-gray-300">
+                <i class="fas fa-times"></i>
             </button>
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
-              Live Demo
+            <button onclick="prevImage()" class="absolute left-4 text-white text-2xl hover:text-gray-300">
+                <i class="fas fa-chevron-left"></i>
             </button>
-          </div>
-        </div>
-
-
-        <div class="details-container color-container">
-          <div class="article-container slider">
-            <div class="article-container slider">
-              <div class="slider">
-                <div class="slides">
-                  <img src="./assets/furniture app/1.png" alt="Image 1">
-                  <img src="./assets/furniture app/2.png" alt="Image 2">
-                  
-            
-                </div>
-                <div class="controls">
-                  <button class="prev">❮</button>
-                  <button class="next">❯</button>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <h2 class="experience-sub-title project-title">My Furniture</h2>
-          <div class="btn-container">
-            <button class="btn btn-color-2 project-btn"
-              onclick="window.open('https://github.com/omarfouad065/furniture_app','_blank')">
-          
-              Github
+            <button onclick="nextImage()" class="absolute right-4 text-white text-2xl hover:text-gray-300">
+                <i class="fas fa-chevron-right"></i>
             </button>
-            <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
-              Live Demo
-            </button>
-          </div>
+            <img id="galleryImage" src="" alt="Project Image" class="max-h-[90vh] max-w-[90vw] object-contain">
         </div>
-
-      <div class="details-container color-container">
-        <div class="article-container slider">
-          <div class="article-container slider">
-            <div class="slider">
-              <div class="slides">
-                <img src="./assets/planet app//1.png" alt="Image 1">
-                <img src="./assets/planet app/2.png" alt="Image 2">
-          
-          
-              </div>
-              <div class="controls">
-                
-                <button class="prev">❮</button>
-                <button class="next">❯</button>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <h2 class="experience-sub-title project-title">Planty</h2>
-        <div class="btn-container">
-          <button class="btn btn-color-2 project-btn" onclick="window.open('https://github.com/omarfouad065/planet_app','_blank')">
-            Github
-          </button>
-          <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
-            Live Demo
-          </button>
-        </div>
-      </div>
-      </div>
     </div>
 
-  </section>
-  <section id="contact">
-    <p class="section__text__p1">Get in Touch</p>
-    <h1 class="title">Contact Me</h1>
-    <div class="contact-info-upper-container">
-      <div class="contact-info-container">
-        <div class="social-icons">
-          <i class="fab fas fa-envelope" style="font-size: 30px;  padding-bottom: 20px;"></i>
-        
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-gray-600 mb-2 fade-in">Get in Touch</p>
+            <h2 class="text-4xl font-bold text-center mb-12 fade-in">Contact Me</h2>
+            <div class="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                <a href="mailto:omarfouad065@gmail.com" class="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 stagger-item">
+                    <i class="fas fa-envelope text-3xl text-gray-400 mb-4"></i>
+                    <p class="text-gray-600 hover:text-gray-900">Email</p>
+                </a>
+                <a href="https://www.linkedin.com/in/omar-fouad-9b794a1b3/" target="_blank" class="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 stagger-item">
+                    <i class="fab fa-linkedin text-3xl text-gray-400 mb-4"></i>
+                    <p class="text-gray-600 hover:text-gray-900">LinkedIn</p>
+                </a>
+                <a href="https://wa.me/201227218710" target="_blank" class="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 stagger-item">
+                    <i class="fab fa-whatsapp text-3xl text-gray-400 mb-4"></i>
+                    <p class="text-gray-600 hover:text-gray-900">WhatsApp</p>
+                </a>
+                <button onclick="copyPhoneNumber(event)" class="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer stagger-item">
+                    <i class="fas fa-phone text-3xl text-gray-400 mb-4"></i>
+                    <p class="text-gray-600 hover:text-gray-900">Phone</p>
+                </button>
+            </div>
         </div>
-        <p><a href="mailto:omarfouad065@gmail.com">omarfouad065@gmail.com</a></p>
-      </div>
-      <div class="contact-info-container">
-        <div class="social-icons">
-          <i class="fab fa-linkedin" style="font-size: 30px;  padding-bottom: 20px;"></i>
-        
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>Copyright &#169; 2025 Omar Fouad. All Rights Reserved.</p>
         </div>
-        <p><a href="https://www.linkedin.com">LinkedIn</a></p>
-      </div>
+    </footer>
 
-      <div class="contact-info-container">
-        <div class="social-icons">
-          <i class="fab fa-whatsapp" style="font-size: 30px;  padding-bottom: 20px;"></i>
-      
-        </div>
-        <p><a href="https://wa.me/201227218710">whatsapp</a></p>
-      </div>
-
-      <div class="contact-info-container">
-        <div class="social-icons">
-          <i class="fab fas fa-phone" style="font-size: 30px; padding-bottom: 20px;"></i>
-        </div>
-        <p>
-          <a href="#" onclick="copyPhoneNumber(event)" style="cursor: pointer;">Phone</a>
-        </p>
-      </div>
-    </div>
-  </section>
-  <footer>
-    
-    <p>Copyright &#169; 2025 Omar Fouad All Rights Reserved.</p>
-  </footer>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".slider").forEach((slider) => {
-          let slides = slider.querySelector(".slides");
-          let prevBtn = slider.querySelector(".prev");
-          let nextBtn = slider.querySelector(".next");
-
-          let index = 0;
-          const totalSlides = slides.children.length;
-          let autoSlide;
-
-          function showSlide(i) {
-            if (i < 0) {
-              index = totalSlides - 1;
-            } else if (i >= totalSlides) {
-              index = 0;
-            } else {
-              index = i;
-            }
-            slides.style.transform = `translateX(-${index * 100}%)`;
-          }
-
-          function startAutoSlide() {
-            autoSlide = setInterval(() => {
-              index++;
-              showSlide(index);
-            }, 3000); // تغيير الصورة كل 3 ثواني
-          }
-
-          function stopAutoSlide() {
-            clearInterval(autoSlide);
-          }
-
-          prevBtn.addEventListener("click", () => {
-            stopAutoSlide(); // إيقاف التقليب التلقائي
-            index--;
-            showSlide(index);
-          });
-
-          nextBtn.addEventListener("click", () => {
-            stopAutoSlide(); // إيقاف التقليب التلقائي
-            index++;
-            showSlide(index);
-          });
-
-          startAutoSlide(); // تشغيل التقليب التلقائي عند التحميل
-        });
-      });
-  </script>
-  <script src="script.js"></script>
-  
+    <script src="script.js"></script>
 </body>
-
-</html>
+</html> 
