@@ -422,6 +422,13 @@ function openGallery(projectFolder) {
     const modal = document.getElementById('galleryModal');
     const galleryImage = document.getElementById('galleryImage');
     
+    // Find the project data
+    const project = projectsData.find(p => p.galleryFolder === projectFolder);
+    if (!project) {
+        console.error('Project not found:', projectFolder);
+        return;
+    }
+    
     // Get all images from the project folder
     const projectImages = [];
     const folderPath = `assets/${projectFolder}/`;
@@ -489,12 +496,94 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Add click event listener to project cards
-const projectCards = document.querySelectorAll('.project-card');
+// Dynamic Project Loading
+let projectsData = [];
 
-projectCards.forEach(card => {
-    card.addEventListener('click', () => {
-        const overlay = card.querySelector('.overlay');
+// Load projects from JSON file
+async function loadProjects() {
+    try {
+        const response = await fetch('projects-data.json');
+        const data = await response.json();
+        projectsData = data.projects;
+        renderProjects();
+    } catch (error) {
+        console.error('Error loading projects:', error);
+        // Fallback: show error message
+        const container = document.getElementById('projects-container');
+        container.innerHTML = '<p class="text-center text-gray-500">Unable to load projects. Please try again later.</p>';
+    }
+}
+
+// Render projects to the DOM
+function renderProjects() {
+    const container = document.getElementById('projects-container');
+    container.innerHTML = '';
+
+    projectsData.forEach((project, index) => {
+        const projectCard = createProjectCard(project, index);
+        container.appendChild(projectCard);
+    });
+
+    // Re-initialize animations for new elements
+    initializeAnimations();
+}
+
+// Create a project card element
+function createProjectCard(project, index) {
+    const card = document.createElement('div');
+    card.className = 'project-card stagger-item';
+    card.style.animationDelay = `${index * 0.1}s`;
+
+    const technologiesHTML = project.technologies
+        .map(tech => `<span class="project-tag">${tech}</span>`)
+        .join('');
+
+    const viewCodeButton = project.isLocked 
+        ? `<button disabled class="locked-button">
+             <i class="fas fa-lock"></i>
+             View Code
+           </button>`
+        : `<button onclick="window.open('${project.githubUrl}', '_blank')">
+             <i class="fab fa-github"></i>
+             View Code
+           </button>`;
+
+    card.innerHTML = `
+        <div class="project-image">
+            <img src="${project.image}" alt="${project.name}" loading="lazy">
+            <div class="overlay">
+                <h3>${project.name}</h3>
+                <p>${project.description}</p>
+                <div class="project-tags">
+                    ${technologiesHTML}
+                </div>
+                <div class="project-buttons">
+                    ${viewCodeButton}
+                    <button onclick="openGallery('${project.galleryFolder}')">
+                        <i class="fas fa-images"></i>
+                        View Gallery
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    return card;
+}
+
+// Initialize animations for dynamically loaded elements
+function initializeAnimations() {
+    const animatedElements = document.querySelectorAll('.stagger-item');
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Add click event listener to project cards (for dynamically created cards)
+document.addEventListener('click', function(e) {
+    const projectCard = e.target.closest('.project-card');
+    if (projectCard) {
+        const overlay = projectCard.querySelector('.overlay');
         const isActive = overlay.style.opacity === '1';
 
         // Toggle the overlay visibility
@@ -507,7 +596,12 @@ projectCards.forEach(card => {
         });
 
         // Toggle the card shadow and transform
-        card.style.transform = isActive ? 'none' : 'translateY(-10px)';
-        card.style.boxShadow = isActive ? 'none' : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
-    });
-}); 
+        projectCard.style.transform = isActive ? 'none' : 'translateY(-10px)';
+        projectCard.style.boxShadow = isActive ? 'none' : '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
+    }
+});
+
+// Load projects when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    loadProjects();
+});
