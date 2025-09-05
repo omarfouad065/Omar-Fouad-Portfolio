@@ -1630,4 +1630,48 @@ body.dark {
 /* Ensure dark mode text color remains unchanged */
 .dark #about, .dark #experience, .dark #projects, .dark #contact {
     color: #e5e5e5; /* Light text color for dark mode */
+}
+
+/* Locked button styles */
+.locked-button {
+    background: #6b7280 !important;
+    color: #9ca3af !important;
+    cursor: not-allowed !important;
+    opacity: 0.6 !important;
+    position: relative;
+}
+
+.locked-button:hover {
+    background: #6b7280 !important;
+    color: #9ca3af !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.locked-button i {
+    color: #9ca3af !important;
+}
+
+.locked-button:hover i {
+    transform: none !important;
+    color: #9ca3af !important;
+}
+
+/* Dark mode locked button styles */
+.dark .locked-button {
+    background: #4b5563 !important;
+    color: #6b7280 !important;
+}
+
+.dark .locked-button:hover {
+    background: #4b5563 !important;
+    color: #6b7280 !important;
+}
+
+.dark .locked-button i {
+    color: #6b7280 !important;
+}
+
+.dark .locked-button:hover i {
+    color: #6b7280 !important;
 } 
