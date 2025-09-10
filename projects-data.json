@@ -7,8 +7,8 @@
       "image": "assets/fruits_hub/1-portrait.png",
       "galleryFolder": "fruits_hub",
       "technologies": ["Flutter", "Firebase", "GetX"],
-      "githubUrl": null,
-      "isLocked": true,
+      "githubUrl": "https://github.com/omarfouad065/fruit_e_commerce",
+      "isLocked": false,
       "featured": true
     },
     {
@@ -18,8 +18,8 @@
       "image": "assets/movie app/1.png",
       "galleryFolder": "movie app",
       "technologies": ["Flutter", "Firebase", "Provider"],
-      "githubUrl": null,
-      "isLocked": true,
+      "githubUrl": "https://github.com/omarfouad065/movie_booking",
+      "isLocked": false,
       "featured": true
     },
     {
