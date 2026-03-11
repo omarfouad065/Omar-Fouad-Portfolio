@@ -538,15 +538,26 @@ function createProjectCard(project, index) {
         .map(tech => `<span class="project-tag">${tech}</span>`)
         .join('');
 
-    const viewCodeButton = project.isLocked 
-        ? `<button disabled class="locked-button">
+    // Conditionally render GitHub and Google Play buttons based on JSON fields
+    let viewCodeButton = '';
+    if (project.isLocked) {
+        viewCodeButton = `<button disabled class="locked-button">
              <i class="fas fa-lock"></i>
              View Code
-           </button>`
-        : `<button onclick="window.open('${project.githubUrl}', '_blank')">
+           </button>`;
+    } else if (project.githubUrl) {
+        viewCodeButton = `<button onclick="window.open('${project.githubUrl}', '_blank')">
              <i class="fab fa-github"></i>
              View Code
            </button>`;
+    }
+
+    const playStoreButton = project.playStoreUrl
+        ? `<button onclick="window.open('${project.playStoreUrl}', '_blank')">
+             <i class="fab fa-google-play"></i>
+             Google Play
+           </button>`
+        : '';
 
     card.innerHTML = `
         <div class="project-image">
@@ -559,6 +570,7 @@ function createProjectCard(project, index) {
                 </div>
                 <div class="project-buttons">
                     ${viewCodeButton}
+                    ${playStoreButton}
                     <button onclick="openGallery('${project.galleryFolder}')">
                         <i class="fas fa-images"></i>
                         View Gallery

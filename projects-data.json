@@ -1,6 +1,22 @@
 {
   "projects": [
     {
+      "id": "courtly",
+      "name": "Courtly",
+      "description": "A full sports court booking platform that allows users to discover, view availability, and reserve sports courts in real time with an integrated QR check-in system.",
+      "image": "assets/courtly_hub/1-portrait.png",
+      "galleryFolder": "courtly_hub",
+      "technologies": [
+        "Flutter",
+        "Firebase",
+        "Bloc",
+        "Google Maps"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.nextwave.courtly.hub",
+      "isLocked": false,
+      "featured": true
+    },
+    {
       "id": "fruits-hub",
       "name": "Fruits Hub",
       "description": "A modern e-commerce mobile application for fresh fruits and vegetables",
