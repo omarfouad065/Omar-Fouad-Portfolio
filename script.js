@@ -433,8 +433,10 @@ function openGallery(projectFolder) {
     const projectImages = [];
     const folderPath = `assets/${projectFolder}/`;
     
-    // Special handling for Fruits Hub project
-    const imageSuffix = projectFolder === 'fruits_hub' ? '-portrait' : '';
+    // Special handling for projects whose images use the "-portrait" suffix
+    const imageSuffix = (projectFolder === 'fruits_hub' || projectFolder === 'courtly_hub')
+        ? '-portrait'
+        : '';
     
     // Add images to the array (assuming images are numbered sequentially)
     for (let i = 1; i <= 10; i++) {
